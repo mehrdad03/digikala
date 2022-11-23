@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:digikala/utils/dimensions.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
@@ -62,15 +62,17 @@ class _BottomBarState extends State<BottomBar> {
                 icon: Icon(Icons.person_outline),
                 activeIcon: Icon(Icons.person_rounded)),
           ],
-          selectedLabelStyle: TextStyle(
+          selectedLabelStyle: const TextStyle(
             fontFamily: "iranYekan",
-          ), unselectedLabelStyle: TextStyle(
-            fontFamily: "iranYekan"
+            fontSize: 12,
+          ), unselectedLabelStyle: const TextStyle(
+            fontFamily: "iranYekan",
+          fontSize: 12,
           ),
           elevation: 20,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.blueGrey,
-          unselectedItemColor: Color(0xFF526480),
+          selectedItemColor: Color(0xFF101010),
+          unselectedItemColor:  Colors.grey.shade500,
         ),
       ),
     );
