@@ -35,35 +35,43 @@ class _BottomBarState extends State<BottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _pagesList[_selectedIndex],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(
-              label: "خانه",
-              icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home_rounded)),
-          BottomNavigationBarItem(
-              label: "سبد خرید",
-              icon: Icon(Icons.shopping_cart_outlined),
-              activeIcon: Icon(Icons.shopping_cart_rounded)),
-          BottomNavigationBarItem(
-              label: "دسته بندی",
-              icon: Icon(Icons.category_outlined),
-              activeIcon: Icon(Icons.category_rounded)),
-          BottomNavigationBarItem(
-              label: "دیجی کالای من",
-              icon: Icon(Icons.person_outline),
-              activeIcon: Icon(Icons.person_rounded)),
-        ],
-        elevation: 20,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blueGrey,
-        unselectedItemColor: Color(0xFF526480),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: Center(
+          child: _pagesList[_selectedIndex],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          items: const [
+            BottomNavigationBarItem(
+                label: "خانه",
+                icon: Icon(Icons.home_outlined),
+                activeIcon: Icon(Icons.home_rounded)),
+            BottomNavigationBarItem(
+                label: "سبد خرید",
+                icon: Icon(Icons.shopping_cart_outlined),
+                activeIcon: Icon(Icons.shopping_cart_rounded)),
+            BottomNavigationBarItem(
+                label: "دسته بندی",
+                icon: Icon(Icons.category_outlined),
+                activeIcon: Icon(Icons.category_rounded)),
+            BottomNavigationBarItem(
+                label: "دیجی کالای من",
+                icon: Icon(Icons.person_outline),
+                activeIcon: Icon(Icons.person_rounded)),
+          ],
+          selectedLabelStyle: TextStyle(
+            fontFamily: "iranYekan",
+          ), unselectedLabelStyle: TextStyle(
+            fontFamily: "iranYekan"
+          ),
+          elevation: 20,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.blueGrey,
+          unselectedItemColor: Color(0xFF526480),
+        ),
       ),
     );
   }
