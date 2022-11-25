@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Container(child: MainSearchBox()),
               SizedBox(
-                height: Dimensions.height10,
+                height: Dimensions.height20,
               ),
               Expanded(
                   child: ListView(

@@ -61,12 +61,12 @@ class _BottomBarState extends State<BottomBar> {
                 icon: Icon(Icons.person_outline),
                 activeIcon: Icon(Icons.person_rounded)),
           ],
-          selectedLabelStyle: const TextStyle(
+          selectedLabelStyle:  TextStyle(
             fontFamily: "iranYekan",
-            fontSize: 12,
-          ), unselectedLabelStyle: const TextStyle(
+            fontSize: Dimensions.font16*.8,
+          ), unselectedLabelStyle:  TextStyle(
             fontFamily: "iranYekan",
-          fontSize: 12,
+          fontSize: Dimensions.font16*.8,
           ),
           elevation: 20,
           type: BottomNavigationBarType.fixed,

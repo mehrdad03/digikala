@@ -1,3 +1,4 @@
+import 'package:digikala/utils/dimensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _MainSearchBoxState extends State<MainSearchBox> {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      height: 70,
+      height: Dimensions.height45*1.5,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -25,26 +26,26 @@ class _MainSearchBoxState extends State<MainSearchBox> {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding:  EdgeInsets.symmetric(horizontal: Dimensions.width20, vertical: Dimensions.height10),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: Dimensions.width10),
           decoration: BoxDecoration(
               color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(10)),
+              borderRadius: BorderRadius.circular(Dimensions.radius10)),
           child: Row(
             children: [
               Icon(Icons.search),
               SizedBox(
-                width: 5,
+                width: Dimensions.width10/2,
               ),
               Text("جستجو در ",
                   style:
                       TextStyle(fontFamily: "iranYekan", color: Colors.grey)),
               SizedBox(
-                width: 5,
+                width: Dimensions.width10,
               ),
               Container(
-                width: 70,
+                width: Dimensions.width30*2.3,
                 child: Image.asset("assets/images/logo_fa.png"),
               )
             ],
