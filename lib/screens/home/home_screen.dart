@@ -1,4 +1,5 @@
-import 'package:digikala/main_search_box.dart';
+import 'package:digikala/widgets/main_search_box.dart';
+import 'package:digikala/widgets/carousel_slider%20_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,11 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
-          body: Stack(
+          body: Column(
             children: [
-             MainSearchBox(),
-              Positioned(child: Container(
-
+              Container(child: MainSearchBox()),
+              SizedBox(
+                height: 15,
+              ),
+              Expanded(
+                  child: ListView(
+                children: [
+                  CarouselSliderWidget(),
+                ],
               ))
             ],
           ),
