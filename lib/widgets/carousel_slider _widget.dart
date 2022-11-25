@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:digikala/utils/dimensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CarouselSliderWidget extends StatefulWidget {
   const CarouselSliderWidget({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class CarouselSliderWidget extends StatefulWidget {
 }
 
 class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
+  int activeIndex=0;
   final urlImages = [
     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
     'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
@@ -22,35 +25,58 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: CarouselSlider.builder(
-        itemCount: urlImages.length,
-        itemBuilder: (BuildContext context, int index, int realIndex) {
-          final images = urlImages[index];
-          return buildImage(images, index);
-        },
-        options: CarouselOptions(
+      child: Stack(
+        children: [
+          Positioned(child: CarouselSlider.builder(
+            itemCount: urlImages.length,
+            itemBuilder: (BuildContext context, int index, int realIndex) {
+              final images = urlImages[index];
+              return buildImage(images, index);
+            },
 
-          height: 200,
-          aspectRatio: 16 / 9,
-          viewportFraction: 0.8,
-          initialPage: 0,
-          enableInfiniteScroll: true,
-          reverse: false,
-          autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
-          scrollDirection: Axis.horizontal,
-        ),
+            options: CarouselOptions(
+                height: 200,
+                aspectRatio: 16 / 9,
+                viewportFraction: 0.8,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                scrollDirection: Axis.horizontal,
+                onPageChanged: (index,reason)=>
+                    setState(()=>  activeIndex=index)
+            ),
+          ),
+          ),
+          Positioned(
+              left: Dimensions.width30*1.8,
+              bottom: Dimensions.height15,
+              child: buildIndicator())
+        ],
       ),
+
+
     );
   }
 
-  Widget buildImage(String urlImages, int index) => Container(
+  Widget buildImage(String urlImages, int index) =>
+      Container(
         margin: EdgeInsets.symmetric(horizontal: 5),
 
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          child: Image.network(urlImages, fit: BoxFit.cover,width: 800),
+          child: Image.network(urlImages, fit: BoxFit.cover, width: 800),
         ),
       );
+
+  Widget buildIndicator() =>
+      AnimatedSmoothIndicator(activeIndex:activeIndex , count: urlImages.length, effect:ScrollingDotsEffect(
+        dotWidth: Dimensions.width15,
+        dotHeight: Dimensions.height15,
+        dotColor: Colors.black38,
+          activeDotColor:  Colors.black
+
+      ),);
 }
