@@ -1,3 +1,4 @@
+import 'package:digikala/utils/dimensions.dart';
 import 'package:digikala/widgets/main_search_box.dart';
 import 'package:digikala/widgets/carousel_slider%20_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Container(child: MainSearchBox()),
               SizedBox(
-                height: 15,
+                height: Dimensions.height10,
               ),
               Expanded(
                   child: ListView(
