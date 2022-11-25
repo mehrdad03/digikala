@@ -1,6 +1,8 @@
 import 'package:digikala/utils/dimensions.dart';
 import 'package:digikala/widgets/main_search_box.dart';
+import 'package:digikala/widgets/home_screen_icons.dart';
 import 'package:digikala/widgets/carousel_slider%20_widget.dart';
+import 'package:digikala/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,16 +22,26 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
           body: Column(
             children: [
-              Container(child: MainSearchBox()),
+              MainSearchBox(),
               SizedBox(
                 height: Dimensions.height20,
               ),
               Expanded(
-                  child: ListView(
-                children: [
-                  CarouselSliderWidget(),
-                ],
-              ))
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  children: [
+                    const CarouselSliderWidget(),
+                    Container(
+                      padding:
+                      EdgeInsets.symmetric(horizontal: Dimensions.width30,
+                          vertical: Dimensions.height20),
+                      child:HomeScreenIcons()
+                      ,
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -37,3 +49,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
