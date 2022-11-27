@@ -1,5 +1,4 @@
 import 'package:digikala/screens/home/home_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:digikala/utils/dimensions.dart';
 
@@ -13,14 +12,14 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 2;
   static final List<Widget> _pagesList = <Widget>[
-   HomeScreen(),
-    Text(
+   const HomeScreen(),
+    const Text(
       'categories',
     ),
-    Text(
+    const Text(
       'cart',
     ),
-    Text(
+    const Text(
       'profile',
     ),
   ];
@@ -70,7 +69,7 @@ class _BottomBarState extends State<BottomBar> {
           ),
           elevation: 20,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Color(0xFF0C0C0C),
+          selectedItemColor: const Color(0xFF0C0C0C),
           unselectedItemColor:  Colors.grey.shade500,
         ),
       ),

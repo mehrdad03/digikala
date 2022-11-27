@@ -1,5 +1,4 @@
 import 'package:digikala/utils/dimensions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainSearchBox extends StatefulWidget {
@@ -34,17 +33,17 @@ class _MainSearchBoxState extends State<MainSearchBox> {
               borderRadius: BorderRadius.circular(Dimensions.radius10)),
           child: Row(
             children: [
-              Icon(Icons.search),
+              const Icon(Icons.search),
               SizedBox(
                 width: Dimensions.width10/2,
               ),
-              Text("جستجو در ",
+              const Text("جستجو در ",
                   style:
                       TextStyle(fontFamily: "iranYekan", color: Colors.grey)),
               SizedBox(
                 width: Dimensions.width10,
               ),
-              Container(
+              SizedBox(
                 width: Dimensions.width30*2.3,
                 child: Image.asset("assets/images/logo_fa.png"),
               )

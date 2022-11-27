@@ -40,6 +40,8 @@ dependencies:
   get: ^4.1.4
   carousel_slider: ^4.1.1
   smooth_page_indicator: ^1.0.0+2
+  flutter_countdown_timer: ^4.1.0
+  digit_to_persian_word: ^2.0.0
 
 
 dev_dependencies:
@@ -68,6 +70,7 @@ flutter:
   assets:
      - assets/images/
      - assets/images/icons/
+     - assets/images/products/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -92,6 +95,16 @@ flutter:
         - asset: assets/fonts/iranYekan/IRANYekanWebMedium.ttf
         - asset: assets/fonts/iranYekan/IRANYekanWebRegular.ttf
         - asset: assets/fonts/iranYekan/IRANYekanWebThin.ttf
+
+
+
+    - family: persian_number
+      fonts:
+        - asset: assets/fonts/iranYekan/IRANYekanXFaNum-Bold.ttf
+        - asset: assets/fonts/iranYekan/IRANYekanXFaNum-Regular.ttf
+
+
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

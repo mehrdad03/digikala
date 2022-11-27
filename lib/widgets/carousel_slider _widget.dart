@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:digikala/utils/dimensions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -14,59 +13,55 @@ class CarouselSliderWidget extends StatefulWidget {
 class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
   int activeIndex=0;
   final urlImages = [
-    'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-    'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-    'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-    'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+    'https://dkstatics-public.digikala.com/digikala-adservice-banners/fddb1f45db28c2e3da013f9063d75283627c7eac_1669123584.gif?x-oss-process=image'
+    'https://dkstatics-public.digikala.com/digikala-adservice-banners/dae04ff034ea44b5bf455e9477680db2e1b9f8a5_1668343193.jpg?x-oss-process=image/quality,q_95',
+    'https://dkstatics-public.digikala.com/digikala-adservice-banners/5c9ae247082c537c4a4725b5c73369be22ffb7a4_1669141733.jpg?x-oss-process=image/quality,q_95',
+    'https://dkstatics-public.digikala.com/digikala-adservice-banners/a33df250b3e1241e2ae58d600ffca85a2c20b231_1669233540.jpg?x-oss-process=image/quality,q_95',
+    'https://dkstatics-public.digikala.com/digikala-adservice-banners/b427eba7d5e06b0d46da84d4944f2ed55d4b2ec4_1669146620.jpg?x-oss-process=image/quality,q_95',
+    'https://dkstatics-public.digikala.com/digikala-adservice-banners/b86b713a722d33937a700e26117626d4475640d2_1669147163.jpg?x-oss-process=image/quality,q_95'
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
-        children: [
-          Positioned(child: CarouselSlider.builder(
-            itemCount: urlImages.length,
-            itemBuilder: (BuildContext context, int index, int realIndex) {
-              final images = urlImages[index];
-              return buildImage(images, index);
-            },
+    return Stack(
+      children: [
+        Positioned(child: CarouselSlider.builder(
+          itemCount: urlImages.length,
+          itemBuilder: (BuildContext context, int index, int realIndex) {
+            final images = urlImages[index];
+            return buildImage(images, index);
+          },
 
-            options: CarouselOptions(
-                height: 200,
-                aspectRatio: 16 / 9,
-                viewportFraction: 0.8,
-                initialPage: 0,
-                enableInfiniteScroll: true,
-                reverse: false,
-                autoPlay: true,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                scrollDirection: Axis.horizontal,
-                onPageChanged: (index,reason)=>
-                    setState(()=>  activeIndex=index)
-            ),
+          options: CarouselOptions(
+              height: 200,
+              aspectRatio: 16 / 9,
+              viewportFraction: 0.8,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 3),
+              autoPlayAnimationDuration: const Duration(milliseconds: 800),
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index,reason)=>
+                  setState(()=>  activeIndex=index)
           ),
-          ),
-          Positioned(
-              left: Dimensions.width30*1.8,
-              bottom: Dimensions.height15,
-              child: buildIndicator())
-        ],
-      ),
-
-
+        ),
+        ),
+        Positioned(
+            left: Dimensions.width30*1.8,
+            bottom: Dimensions.height15,
+            child: buildIndicator())
+      ],
     );
   }
 
   Widget buildImage(String urlImages, int index) =>
       Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
 
         child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           child: Image.network(urlImages, fit: BoxFit.cover, width: 800),
         ),
       );
