@@ -1,9 +1,12 @@
 import 'package:digikala/utils/dimensions.dart';
 import 'package:digikala/widgets/amazing_offer.dart';
 import 'package:digikala/widgets/big_text.dart';
+import 'package:digikala/widgets/brands.dart';
+import 'package:digikala/widgets/full_width_banner.dart';
 import 'package:digikala/widgets/main_search_box.dart';
 import 'package:digikala/widgets/home_screen_icons.dart';
 import 'package:digikala/widgets/carousel_slider%20_widget.dart';
+import 'package:digikala/widgets/side_by_side_banner.dart';
 import 'package:digikala/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,58 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: const HomeScreenIcons(),
                     ),
                     const AmazingOffer(),
-                    Padding(
-                      padding: EdgeInsets.all(Dimensions.height20 * 1.1),
-                      child: Container(
-                        height: Dimensions.height45 * 4,
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.radius20),
-                          image: const DecorationImage(
-                            image:
-                                ExactAssetImage('assets/images/banners/b1.jpg'),
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: Dimensions.width20),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: Dimensions.height45 * 3,
-                            width: Dimensions.height45 * 4,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(Dimensions.radius20),
-                              image: const DecorationImage(
-                                image: ExactAssetImage(
-                                    'assets/images/banners/b3.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: Dimensions.width10 * .8,
-                          ),
-                          Container(
-                            height: Dimensions.height45 * 3,
-                            width: Dimensions.height45 * 4,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(Dimensions.radius20),
-                              image: const DecorationImage(
-                                image: ExactAssetImage(
-                                    'assets/images/banners/b2.jpg'),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    FullWidthBanner(),
+                    SideBySideBanner(),
                     Padding(
                       padding:  EdgeInsets.symmetric(vertical: Dimensions.height20),
                       child: Center(
@@ -103,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: Dimensions.width30,vertical: Dimensions.height10),
+                      padding:  EdgeInsets.symmetric(horizontal: Dimensions.width30),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -239,6 +192,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
+                    Padding(
+                      padding:  EdgeInsets.symmetric(vertical: Dimensions.height20),
+                      child: Center(
+
+                        child: BigText(text: "محبوت ترین برندها",  fontFamily: "iranYekan",fontWeight:FontWeight.bold),
+                      ),
+                    ),
+                    Brands(),
+
+
+
                   ],
                 ),
               ),

@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'DigiKala',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+          scaffoldBackgroundColor:Colors.white
       ),
       home:BottomBar(),
     );
