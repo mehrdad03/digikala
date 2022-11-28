@@ -1,4 +1,5 @@
 import 'package:digikala/screens/home/home_screen.dart';
+import 'package:digikala/screens/product/product_screen.dart';
 import 'package:digikala/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:digikala/utils/dimensions.dart';
@@ -14,7 +15,7 @@ class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 2;
   static final List<Widget> _pagesList = <Widget>[
    const HomeScreen(),
-   const ProfileScreen(),
+   const ProductScreen(),
     const Text(
       'cart',
     ),

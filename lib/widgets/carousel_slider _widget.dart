@@ -60,10 +60,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
       Container(
         margin: const EdgeInsets.symmetric(horizontal: 5),
 
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          child: Image.network(urlImages, fit: BoxFit.cover, width: 800),
-        ),
+
       );
 
   Widget buildIndicator() =>
