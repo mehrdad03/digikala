@@ -42,6 +42,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   flutter_countdown_timer: ^4.1.0
   digit_to_persian_word: ^2.0.0
+  flutter_svg: ^1.1.6
 
 
 dev_dependencies:
@@ -74,6 +75,7 @@ flutter:
      - assets/images/banners/
      - assets/images/categories/
      - assets/images/brands/
+     - assets/images/tracking_icons/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
