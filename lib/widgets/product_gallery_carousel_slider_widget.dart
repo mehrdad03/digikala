@@ -22,6 +22,7 @@ class _ProductGalleryCarouselSliderWidgetState extends State<ProductGalleryCarou
 
   @override
   Widget build(BuildContext context) {
+
     return Stack(
       children: [
         Positioned(child: CarouselSlider.builder(

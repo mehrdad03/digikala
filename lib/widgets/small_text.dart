@@ -14,7 +14,7 @@ class SmallText extends StatelessWidget {
     this.color = const Color(0xff121212),
     required this.text,
     this.size = 12,
-    this.height = 1.2,
+    this.height = 1.5,
     this.fontWeight,
     this.fontFamily="iranYekan",
     this.textDecoration//look like line height in css
@@ -29,6 +29,7 @@ class SmallText extends StatelessWidget {
           fontSize: size,
           color: color,
           fontWeight: fontWeight,
+          height: height,
           decoration: textDecoration),
     );
   }

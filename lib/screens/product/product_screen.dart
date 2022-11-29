@@ -1,4 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:digikala/screens/product/product_features.dart';
+import 'package:digikala/screens/product/product_colors.dart';
+import 'package:digikala/screens/product/product_description.dart';
+import 'package:digikala/screens/product/product_header_amazing.dart';
+import 'package:digikala/screens/product/product_interaction.dart';
 import 'package:digikala/utils/colors.dart';
 import 'package:digikala/utils/dimensions.dart';
 import 'package:digikala/widgets/big_text.dart';
@@ -17,8 +22,6 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
-  int endTime = DateTime.now().millisecondsSinceEpoch + 100000000 * 30;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +31,10 @@ class _ProductScreenState extends State<ProductScreen> {
         child: ListView(
           children: [
             Container(
-              padding: EdgeInsets.all(Dimensions.height20),
+              padding: EdgeInsets.only(
+                  top: Dimensions.height10,
+                  left: Dimensions.width20,
+                  right: Dimensions.width20),
               decoration: BoxDecoration(
                 color: Colors.white,
               ),
@@ -37,13 +43,13 @@ class _ProductScreenState extends State<ProductScreen> {
                 children: [
                   Icon(
                     Icons.close,
-                    size: Dimensions.height30,
+                    size: Dimensions.height30 * .7,
                   ),
                   Row(
                     children: [
                       Icon(
                         Icons.favorite_border_outlined,
-                        size: Dimensions.height30,
+                        size: Dimensions.height30 * .7,
                       ),
                       SizedBox(
                         width: Dimensions.width20,
@@ -56,7 +62,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                 width: Dimensions.width30 * 1.3,
                                 child: Icon(
                                   Icons.shopping_cart_outlined,
-                                  size: Dimensions.height30,
+                                  size: Dimensions.height30 * .7,
                                 )),
                           ),
                           Positioned(
@@ -81,7 +87,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       ),
                       Icon(
                         Icons.more_vert_outlined,
-                        size: Dimensions.height30,
+                        size: Dimensions.height30 * .7,
                       )
                     ],
                   ),
@@ -91,47 +97,53 @@ class _ProductScreenState extends State<ProductScreen> {
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-              ),
-              padding: EdgeInsets.symmetric(horizontal: Dimensions.width20*.5),
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: Dimensions.width20,right:Dimensions.width20,bottom: Dimensions.height15 ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                        border: Border(bottom: BorderSide(color: AppColors.mainColor),)
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        BigText(
-                          text: "پیشنهاد شگفت انگیز",
-                          size: Dimensions.font16 * .8,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.mainColor,
-                        ),
-                        Directionality(
-                            textDirection: TextDirection.ltr,
-                            child: CountdownTimer(
-                              endTime: endTime,
-                              textStyle: TextStyle(
-                                fontSize: Dimensions.font16 *.8,
-                                fontFamily: "persian_number",
-                                color: AppColors.mainColor,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ))
-                      ],
-                    ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade300,
+                    blurRadius: 5,
+                    offset: const Offset(0, 5), // Shadow position
                   ),
-                  SizedBox(height: Dimensions.height10,),
-                  ProductGalleryCarouselSliderWidget(),
-
-                  
-                  
                 ],
               ),
-            )
+              padding: EdgeInsets.symmetric(
+                  horizontal: Dimensions.width20,
+                  vertical: Dimensions.height15),
+              child: Column(
+                children: [
+                  ProductAmazingHeader(),
+                  SizedBox(
+                    height: Dimensions.height10,
+                  ),
+                  ProductGalleryCarouselSliderWidget(),
+                  BigText(
+                    text:
+                        "گوشی موبایل اپل مدل iPhone 13 Pro Max A2644 دو سیم‌ کارت ظرفیت 256 گیگابایت و رم 6 گیگابایت",
+                    maxLine: 2,
+                    fontWeight: FontWeight.bold,
+                    size: Dimensions.font16 * .9,
+                  ),
+                  SizedBox(
+                    height: Dimensions.height15,
+                  ),
+                  ProductInteraction(),
+                  Row(
+                    children: [
+                      BigText(
+                        text: "رنگ :",
+                        size: Dimensions.font16 * .9,
+                      ),
+                      BigText(
+                        text: "سبز",
+                        size: Dimensions.font16 * .9,
+                      )
+                    ],
+                  ),
+                  ProductColors()
+                ],
+              ),
+            ),
+            ProductDescription(),
+            ProductFeatures(),
           ],
         ),
       ),
