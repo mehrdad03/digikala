@@ -25,7 +25,6 @@ class _BottomBarState extends State<BottomBar> {
   ];
 
   void _onItemTapped(int index){
-
     setState(() {
       _selectedIndex=index;
     });

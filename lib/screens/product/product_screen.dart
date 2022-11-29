@@ -10,6 +10,7 @@ import 'package:digikala/widgets/big_text.dart';
 import 'package:digikala/widgets/carousel_slider%20_widget.dart';
 import 'package:digikala/widgets/product_gallery_carousel_slider_widget.dart';
 import 'package:digikala/widgets/small_text.dart';
+import 'package:digit_to_persian_word/digit_to_persian_word.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
@@ -144,6 +145,96 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
             ProductDescription(),
             ProductFeatures(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: Dimensions.width20, vertical: Dimensions.height10),
+        decoration: BoxDecoration(color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              blurRadius: 5,
+              offset: const Offset(0,5), // Shadow position
+            ),
+          ],),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: Dimensions.width10,vertical: Dimensions.height15*1.3),
+              decoration: BoxDecoration(
+                  color: AppColors.mainColor,
+                  borderRadius:
+                      BorderRadius.circular(Dimensions.radius10 * .7),
+
+              ),
+              child: SmallText(
+                text: "افزودن به سبد خرید",
+                color: Colors.white,
+              ),
+            ),
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Container(
+                height: Dimensions.height45*1.3,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: Dimensions.width10),
+                          decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius:
+                                  BorderRadius.circular(Dimensions.radius20)),
+                          child: SmallText(
+                            text: "2%",
+                            fontFamily: "persian_number",
+                            color: Colors.white,
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: Dimensions.height10),
+                          child: SmallText(
+                            text: DigitFormat.convert("458100", separator: ","),
+                            fontFamily: "persian_number",
+                            color: Colors.grey,
+                            textDecoration: TextDecoration.lineThrough,
+                          ),
+                        ),
+
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: Dimensions.width10),
+                          child: SmallText(
+                            text: "تومان",
+                            fontFamily: "persian_number",
+
+                          ),
+                        ),
+                        BigText(
+                          text: DigitFormat.convert("250000", separator: ","),
+                          fontFamily: "persian_number",
+                          fontWeight: FontWeight.bold,
+                          size: Dimensions.font16,
+
+                        ),
+
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
