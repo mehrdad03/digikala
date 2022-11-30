@@ -22,7 +22,7 @@ class ProductTitle extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       maxLines: 2,
       style: TextStyle(
-          fontFamily: "iranYekan", fontSize: 12, fontWeight: fontWeight),
+          fontFamily: "iranYekan", fontSize: size, fontWeight: fontWeight,height: 1.7),
     );
   }
 }
